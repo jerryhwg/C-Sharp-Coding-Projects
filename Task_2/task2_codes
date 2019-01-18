@@ -1,0 +1,46 @@
+//// Rename ActiveSchedule to Approved
+
+### Views/TimeOffEvent/index.cshtml
+
+@Html.DisplayNameFor(model => model.ActiveSchedule)
+@Html.DisplayFor(modelItem => item.ActiveSchedule)
+
+Create
+@Html.DisplayFor(modelItem => item.ActiveSchedule)
+
+Edit
+commented code
+
+Details
+@Html.DisplayNameFor(model => model.ActiveSchedule)
+@Html.DisplayFor(model => model.ActiveSchedule)
+
+Delete
+@Html.DisplayNameFor(model => model.ActiveSchedule)
+@Html.DisplayFor(model => model.ActiveSchedule)
+
+
+##### Solution #####
+
+Subtask 1)
+
+Views/TimeOffEvent/Index.cshtml
+@model IEnumerable<ScheduleUsers.Models.TimeOffEvent>
+
+Models/TimeOffEvent.cs
+public class TimeOffEvent:Event
+
+Model/Event.cs
+[Display(Name = "Approved")]
+public bool ActiveSchedule { get; set; }
+
+Subtask 2)
+
+Remove the Title and Name Column
+
+Remove from Index.cshtml, details.cshtml, delete.cshtml
+@Html.DisplayNameFor(model => model.User.FirstName)
+@Html.DisplayNameFor(model => model.Title)
+
+@Html.DisplayFor(modelItem => item.User.FirstName)
+@Html.DisplayFor(modelItem => item.Title)
